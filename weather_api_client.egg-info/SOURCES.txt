@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+weather_api_client/__init__.py
+weather_api_client/client.py
+weather_api_client/main.py
+weather_api_client/service.py
+weather_api_client.egg-info/PKG-INFO
+weather_api_client.egg-info/SOURCES.txt
+weather_api_client.egg-info/dependency_links.txt
+weather_api_client.egg-info/entry_points.txt
+weather_api_client.egg-info/requires.txt
+weather_api_client.egg-info/top_level.txt

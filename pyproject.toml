@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "weatherapiclient"
+version = "0.1.0"
+description = ""
+authors = ["Saifulina Anna <saifulianna.it@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+wemake-python-styleguide = "^0.18.0"
+twine = "^4.0.2"
+setuptools = "^69.0.3"
+wheel = "^0.42.0"
+
+
+[build-system]
+requires = ["poetry-core", "setuptools"]
+build-backend = "setuptools.build_meta"

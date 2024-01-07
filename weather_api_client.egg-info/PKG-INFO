@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: weather_api_client
+Version: 0.2.1
+Summary: Weather API client application. This script retrieves and displays the current weather information for a given city using the OpenWeatherMap API. sage: cli-weather <api_key> <city>
+Home-page: 
+Author: Ann
+License: MIT
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+Weather API client application for retrieving and displaying the current weather information using the [OpenWeatherMap API](https://openweathermap.org/).
+
+***
+
+## Start
+### 1. Installation
+install from the site or from the downloaded package
+```bash
+pip install weather_api_client-<-version->
+```
+### 2. Start the Weather API client
+```bash
+cli-weather <api_key> <city>
+```
+Replace < api_key > with the [OpenWeatherMap API](https://openweathermap.org/) key and < city > with the desired city.
+
+for example:
+
+```bash
+cli-weather <api_key> London
+```
+
+```bash
+Current Weather in London:
+Temperature: 278.82 K
+Temperature: 6 °C
+Description: broken clouds
+Wind Speed: 2.06 m/s
+Humidity: 85%
