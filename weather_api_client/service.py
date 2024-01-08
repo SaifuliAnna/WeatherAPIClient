@@ -1,5 +1,4 @@
 """Module for MyAPIService."""
-import logging
 from typing import Any, Dict, Optional
 
 
@@ -8,18 +7,18 @@ class APIServiceWeather(object):
 
     def __init__(self) -> None:
         """Initialize the MyAPIService."""
-        self.results: Dict[str, Any] = {}
+        self.result_dict: Dict[str, Any] = {}
 
-    def save_result(self, key: str, data: Any) -> None:
+    def save_result(self, key: str, result_data: Any) -> None:
         """
         Save result in MyAPIService.
 
         :param key: str: Identify the result
-        :param data: Any: Save the result of a function in the results dictionary
+        :param result_data: Any: Save the result of a function in the results dictionary
         :return: None
         """
-        self.results[key] = data
-        logging.info(f'Result saved: {key} - {data}')
+        self.result_dict[key] = result_data
+        print(f'Result saved: {key} - {result_data}')
 
     def get_result(self, key: str) -> Optional[Any]:
         """
@@ -28,19 +27,19 @@ class APIServiceWeather(object):
         :param key: str: Identify the result
         :return: Any or None
         """
-        return self.results.get(key)
+        return self.result_dict.get(key, None)
 
-    def update_result(self, key: str, data: Any) -> None:
+    def update_result(self, key: str, result_data: Any) -> None:
         """
         Update result in MyAPIService.
 
         :param key: str: Identify the result
-        :param data: Any: Updated result data
+        :param result_data: Any: Updated result data
         :return: None
         """
-        if key in self.results:
-            self.results[key] = data
-            logging.info(f'Result updated: {key} - {data}')
+        if key in self.result_dict:
+            self.result_dict[key] = result_data
+            print(f'Result updated: {key} - {result_data}')
 
     def delete_result(self, key: str) -> None:
         """
@@ -49,6 +48,7 @@ class APIServiceWeather(object):
         :param key: str: Identify the result to delete
         :return: None
         """
-        if key in self.results:
-            del self.results[key]
-            logging.info(f'Result deleted: {key}')
+        if key in self.result_dict:
+            self.result_dict.pop(key)
+            print(f'Result deleted: {key}')
+
