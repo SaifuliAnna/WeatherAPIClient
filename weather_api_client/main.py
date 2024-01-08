@@ -36,9 +36,9 @@ def main():
         api_service.save_result(city, current_weather)
 
         weather_summary = api_service.analyze_weather(current_weather)
-        print(f"Current Weather in {city}:\n{weather_summary}")
+        print(f'Current Weather in {city}:\n{weather_summary}')
     else:
-        print(f"No weather information available for {city}.\n")
+        print(f'No weather information available for {city}.\n')
 
 
 if __name__ == '__main__':

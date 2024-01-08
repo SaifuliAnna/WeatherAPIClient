@@ -19,7 +19,7 @@ class APIServiceWeather(object):
         :return: None
         """
         self.results[key] = data
-        logging.info(f"Result saved: {key} - {data}")
+        logging.info(f'Result saved: {key} - {data}')
 
     def get_result(self, key: str) -> Optional[Any]:
         """
@@ -40,7 +40,7 @@ class APIServiceWeather(object):
         """
         if key in self.results:
             self.results[key] = data
-            logging.info(f"Result updated: {key} - {data}")
+            logging.info(f'Result updated: {key} - {data}')
 
     def delete_result(self, key: str) -> None:
         """
@@ -51,7 +51,7 @@ class APIServiceWeather(object):
         """
         if key in self.results:
             del self.results[key]
-            logging.info(f"Result deleted: {key}")
+            logging.info(f'Result deleted: {key}')
 
     def analyze_weather(self, weather_data: Dict[str, Any]) -> str:
         """
@@ -69,11 +69,11 @@ class APIServiceWeather(object):
         humidity = weather_data.get('main', {}).get('humidity', 0)
 
         summary = (
-            f"Temperature: {temperature} K\n"
-            f"Temperature: {round(temperature - 273.15)} °C\n"
-            f"Description: {description}\n"
-            f"Wind Speed: {wind_speed} m/s\n"
-            f"Humidity: {humidity}%"
+            f'Temperature: {temperature} K\n'
+            f'Temperature: {round(temperature - 273.15)} °C\n'
+            f'Description: {description}\n'
+            f'Wind Speed: {wind_speed} m/s\n'
+            f'Humidity: {humidity}%'
         )
 
         return summary

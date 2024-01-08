@@ -31,5 +31,5 @@ class APIClientWeather(object):
             return weather_data
 
         except requests.RequestException as e:
-            print(f"City not found: {city_name}. Try another name, please...")
+            print(f'City not found: {city_name}. Try another name, please...')
             return {}
