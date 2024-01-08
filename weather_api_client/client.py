@@ -22,11 +22,12 @@ class APIClientWeather(object):
         :param city_name: str: Specify the city name to get weather data for
         :return: A dictionary with the weather information
         """
-        params = {'q': city_name, API_KEY_PARAM: self.api_key}
+        request_params = {'q': city_name, API_KEY_PARAM: self.api_key}
+
         try:
-            response = requests.get(self.base_url, params=params)
+            response = requests.get(self.base_url, params=request_params, timeout=10)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException:
-            print(f'City not found: {city_name}. Try another name, please...')
+            print(f'Error fetching weather data for {city_name}.\nTry another name, please...')
             return {}
