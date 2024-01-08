@@ -18,7 +18,7 @@ class APIServiceWeather(object):
         :return: None
         """
         self.result_dict[key] = result_data
-        print(f'Result saved: {key} - {result_data}')
+        print(f'Result saved: {key}')
 
     def get_result(self, key: str) -> Optional[Any]:
         """
