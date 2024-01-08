@@ -26,10 +26,7 @@ class APIClientWeather(object):
         try:
             response = requests.get(self.base_url, params=params)
             response.raise_for_status()
-            weather_data = response.json()
-
-            return weather_data
-
-        except requests.RequestException as e:
+            return response.json()
+        except requests.exceptions.RequestException:
             print(f'City not found: {city_name}. Try another name, please...')
             return {}

@@ -52,28 +52,3 @@ class APIServiceWeather(object):
         if key in self.results:
             del self.results[key]
             logging.info(f'Result deleted: {key}')
-
-    def analyze_weather(self, weather_data: Dict[str, Any]) -> str:
-        """
-        Analyze weather data and return a summary.
-
-        :param weather_data: Dict[str, Any]: Weather information
-        :return: str: Weather summary
-        """
-        if not weather_data:
-            return 'No weather information available.'
-
-        temperature = weather_data.get('main', {}).get('temp', 0)
-        description = weather_data.get('weather', [{}])[0].get('description', 'Unknown')
-        wind_speed = weather_data.get('wind', {}).get('speed', 0)
-        humidity = weather_data.get('main', {}).get('humidity', 0)
-
-        summary = (
-            f'Temperature: {temperature} K\n'
-            f'Temperature: {round(temperature - 273.15)} °C\n'
-            f'Description: {description}\n'
-            f'Wind Speed: {wind_speed} m/s\n'
-            f'Humidity: {humidity}%'
-        )
-
-        return summary

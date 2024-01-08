@@ -8,6 +8,7 @@ Usage:
 """
 
 import argparse
+from typing import Dict, Any
 
 # for code
 from client import APIClientWeather
@@ -16,6 +17,32 @@ from service import APIServiceWeather
 # for setup.py
 # from weather_api_client.client import APIClientWeather
 # from weather_api_client.service import APIServiceWeather
+
+
+def analyze_weather(weather_data: Dict[str, Any]) -> str:
+    """
+    Analyze weather data and return a summary.
+
+    :param weather_data: Dict[str, Any]: Weather information
+    :return: str: Weather summary
+    """
+    if not weather_data:
+        return 'No weather information available.'
+
+    temperature = weather_data.get('main', {}).get('temp', 0)
+    description = weather_data.get('weather', [{}])[0].get('description', 'Unknown')
+    wind_speed = weather_data.get('wind', {}).get('speed', 0)
+    humidity = weather_data.get('main', {}).get('humidity', 0)
+
+    summary = (
+        f'Temperature: {temperature} K\n'
+        f'Temperature: {round(temperature - 273.15)} °C\n'
+        f'Description: {description}\n'
+        f'Wind Speed: {wind_speed} m/s\n'
+        f'Humidity: {humidity}%'
+    )
+
+    return summary
 
 
 def main():
@@ -35,7 +62,7 @@ def main():
     if current_weather:
         api_service.save_result(city, current_weather)
 
-        weather_summary = api_service.analyze_weather(current_weather)
+        weather_summary = analyze_weather(current_weather)
         print(f'Current Weather in {city}:\n{weather_summary}')
     else:
         print(f'No weather information available for {city}.\n')
