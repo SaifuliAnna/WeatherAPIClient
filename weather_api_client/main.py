@@ -8,7 +8,7 @@ Usage:
 """
 
 import argparse
-from typing import Dict, Any
+from typing import Any, Dict
 
 # for code
 from client import APIClientWeather
